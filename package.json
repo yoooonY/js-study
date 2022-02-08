@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "readline-sync": "1.4.10",
+    "xo": "0.47.0"
+  },
+  "xo": {
+    "space": true,
+    "prettier": true
+  },
+  "name": "js-study",
+  "description": "node_modules\r dist",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
