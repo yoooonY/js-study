@@ -16,4 +16,3 @@ if (num1 >= 18) {
   console.log('You can go Tric-or-Treating');
 }
 
-

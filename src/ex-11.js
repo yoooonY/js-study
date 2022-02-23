@@ -7,4 +7,5 @@ const small = Number(question('10미만 숫자 입력..'));
 // console.log(`value: ${day}, type: ${typeof day}`);
 
 const num = big / small;
+// const num = Math.floor(big / small); // 소수점 버리기
 console.log(small + '은 ' + big + '에 ' + num + '번 들어갈 수 있습니다.');

@@ -4,6 +4,6 @@ import { question } from "readline-sync";
 const kg = Number(question('몸무게 입력 (kg)..'));
 // console.log(`value: ${day}, type: ${typeof day}`);
 
-const result = 2.204 * kg;
+const result = (2.204 * kg).toFixed(3);
 
 console.log('파운드로 환산하면 ' + result + '입니다.');

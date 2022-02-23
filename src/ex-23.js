@@ -12,4 +12,3 @@ const num2 = Number(question(`${num1.length} 이하 시작 숫자..`));
 const num3 = Number(question(`${num1.length} 이하 끝 숫자..`));
 
 console.log(`범위 내 텍스트는 ${num1.slice(num2 - 1, num3)}입니다.`);
-
