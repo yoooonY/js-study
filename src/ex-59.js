@@ -1,25 +1,39 @@
-// 임의로 생성된 두 개의 정수를 더하는 다섯 개의 질문(즉, [숫자1] + [숫자2])이 나오는 수학 퀴즈를 만들자. 
-// 사용자에게 답을 입력하라고 요청하고 정답을 맞히면 점수를 증가하라. 
-// 퀴즈가 끝나면 다섯 문제 중에 몇 개를 맞혔는지 출력하라.
+// 다섯 개의 색상을 표시하고 그들 중 하나를 사용자에게 선택하라고 요청한다. 
+// 만약 프로그램이 선택한 것과 동일하면 "Well done"이라고 출력하고, 
+// 그렇지 않다면 컴퓨터가 선택한 색상이 포함된 위트 있는 문장을 출력하라. 
+// 예: "I bet you are GREEN with envy" 또는 "You are probably feeling BLUE right now". 
+// 다시 맞혀 보라고 사용자에게 색상을 입력하라고 한다. 사용자가 맞힐 때까지 이 작업을 반복한다.
 
 import { question } from "readline-sync";
 
-let score = 0;
+const color = ['green', 'blue', 'purple', 'white', 'black'];
+const choice = Math.floor(Math.random() * color.length); // color에서 랜덤 인덱스 추출
+const rcolor = color[choice]; // color에 있는 choice 자리의 문자열 추출
+console.log(rcolor);
 
-for (let i = 1; i < 6; i++) {
-  let rnum1 = Math.floor(Math.random() * 100) + 1; // 1 ~ 100까지 랜덤선택
-  let rnum2 = Math.floor(Math.random() * 100) + 1;
-  let ques = Number(rnum1 + rnum2);
-  console.log(`${i}번 문제) ${rnum1} + ${rnum2} = ??`);
-  let answer = Number(question('정답을 입력하세요.. '));
-  if (ques === answer) {
-    score += 1;
-    console.log(`정답입니다.\n현재 스코어는 ${score} 점 입니다.\n`);
+console.log(color);
+
+while (true) {
+  const answer = question('목록 중 하나의 색깔을 선택하세요.. ');
+  if (rcolor === answer) {
+    console.log('Well done');
+    break;
+  } else if (answer === 'green') {
+    console.log(`I bet you are GREEN with envy`);
     continue;
-  } else if (ques !== answer) {
-    console.log(`틀렸습니다.\n현재 스코어는 ${score} 점 입니다.\n`);
+  } else if (answer === 'blue') {
+    console.log(`You are probably feeling BLUE right now`);
     continue;
+  } else if (answer === 'purple') {
+    console.log(`I be born to the PURPLE`);
+    continue;
+  } else if (answer === 'white') {
+    console.log(`To wave a WHITE flag`);
+    continue;
+  } else if (answer === 'black') {
+    console.log(`BLACK sheep of the family`);
+    continue;
+  } else {
+    console.log('잘못 입력하셨습니다. ');
   }
 }
-
-console.log(`총 5문제 중 ${score}개 맞추셨습니다. `);
