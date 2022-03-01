@@ -3,8 +3,18 @@
 
 import { question } from "readline-sync";
 
+/*
 let num = Number(question('50 미만의 숫자를 입력하세요..'));
 
 for (let i = 50; i > num - 1; i--) {
   console.log(`${i}`);
+}
+*/
+
+let num = Number(question('50 미만의 숫자를 입력하세요..'));
+for (let i = 50; i >= num; i--) {
+  console.log(`${i}`);
+  if (i === num - 1) {
+    break;
+  }
 }
