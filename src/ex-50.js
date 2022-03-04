@@ -6,6 +6,7 @@
 
 import { question } from "readline-sync";
 
+/* eslint no-constant-condition: ["error", { "checkLoops": false }] */
 while (true) {
   let num = Number(question('10부터 20 사이의 숫자를 입력하세요..'));
   if (num < 10) {

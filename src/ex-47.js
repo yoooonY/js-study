@@ -10,6 +10,7 @@ const num2 = Number(question('두 번째 숫자를 입력하세요..'));
 
 sum = num1 + num2;
 
+/* eslint no-constant-condition: ["error", { "checkLoops": false }] */
 while (true) {
   const ques = question('또 다른 숫자를 더할까요?..(y/n)');
   if (ques === 'Y' || ques === 'y') {

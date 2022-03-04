@@ -9,7 +9,7 @@ import { question } from "readline-sync";
 const ht = ['h', 't'];
 const rht = Math.floor(Math.random() * ht.length);
 const computer = ht[rht];
-console.log(computer);
+// console.log(computer); 숫자 확인
 
 const choice = question('다음 중 선택하세요 (h/t)..');
 

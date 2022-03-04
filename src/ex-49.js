@@ -6,6 +6,7 @@
 import { question } from "readline-sync";
 const compnum = Number(50);
 
+
 while (true) {
   const num = Number(question('숫자를 입력하세요..'));
   if (compnum < num) {

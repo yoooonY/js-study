@@ -15,7 +15,7 @@ while (true) {
   console.log(`and if 1 green bottle should accidentally fall`);
   
   bottles -= 1;
-  console.log(bottles);
+  console.log(bottles); // 정답 보기위해 출력
   let num = Number(
     question(`how many green bottles will be hanging on the wall?.. `)
   );
