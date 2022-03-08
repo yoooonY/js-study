@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ex. 60</title>
+  </head>
+  <body>
+    <!-- 그림이 그려질 영역 -->
+    <canvas id="real-turtle"></canvas>
+    <script src="https://unpkg.com/real-turtle"></script>
+    <script src="https://unpkg.com/real-turtle/build/helpers/simple.js"></script>
+    <script>
+      // 원 그리기 arc(radius(반지름), angle(도), counterclockwise(반시계방향, option))
+      // penUP(), penDown(), 
+      // 선 색깔 setStrokeColorRGB(r, g, b) 0~255
+      // 다섯 개의 꼭짓점이 있는 별 모양을 그려라
+      turtle
+        .right(90)
+        for (let i = 0; i < 4; i++) {
+        turtle
+        .forward(100)
+        .left(144) 
+      };
+      turtle
+        .forward(100)         // 오망성 그리기 완
+        .penUp()              // 옆으로 이동
+        .right(36)
+        .forward(100)
+        .penDown()
+        .right(36)            // 다른 별 그리기
+        .forward(50)
+        .right(144)
+        .forward(50)
+        .left(72)
+        .forward(50)
+        .right(144)
+        .forward(50)
+        .left(72)
+        .forward(50)
+        .right(144)
+        .forward(50)
+        .left(72)
+        .forward(50)
+        .right(144)
+        .forward(50)
+        .left(72)
+        .forward(50)
+        .right(144)
+        .forward(50);
+    </script>
+  </body>
+</html>
+
