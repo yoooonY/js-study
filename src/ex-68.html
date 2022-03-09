@@ -15,18 +15,49 @@
     <script>
       // 원 그리기 arc(radius(반지름), angle(도), counterclockwise(반시계방향, option))
       // penUP(), penDown(), 
-      // 다음의 패턴을 만들어라. (8각형 10개)
+      // 프로그램이 시작할 때마다 변경되는 패턴을 그려라. Math.random 함수를 사용하여 선의 개수와 각 선의 길이, 그리고 회전 각도를 선택하라.
+      const num = [1, 2, 3, 4, 5];
+      const rnum = Number(Math.floor(Math.random() * num.length) + 1);
+      console.log(rnum); // 숫자 확인
+
+      switch(rnum) {
+        case 1 :
+        turtle
+        .forward(100)
+        .right(90)
+        .forward(100)
+        .right(90)
+        .forward(100)
+        .right(90)
+        .forward(100);
+        break;
+        case 2 :
+        turtle
+        .forward(100)
+        .right(120)
+        .forward(100)
+        .right(120)        
+        .forward(100);
+        break;
+        case 3 :
+        turtle.arc(60,360);
+        break;
+        case 4 :
+        turtle
+       .right(90)
+        for (let i = 0; i < 4; i++) {
+        turtle
+        .forward(100)
+        .left(144)
+      };
+      case 5 :
+      for (let i = 0; i < 8; i++) {
       turtle
-      .setSpeed(0.9);
-      for (let i = 0; i < 10; i++) {
-        for (let j = 0; j < 8; j++) {
-          turtle
-          .forward(100)
-          .right(45);
-        }
-      turtle
-      .right(36);
+        .forward(100)
+        .right(45);
+      }
     }
+
     </script>
   </body>
 </html>
