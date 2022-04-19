@@ -2,9 +2,21 @@
 
 import { question } from "readline-sync";
 
+
 const ques = question('가장 좋아하는 과목 이름을 입력하세요..');
 
 // for (const que of ques) {
 for (let i = 0; i < ques.length; i++) {
   process.stdout.write(ques[i] + '-'); // nodeJS 함수? 어쨌든 실행은됨..
 }
+
+/*
+const subject = question('가장 좋아하는 과목을 입력하세요 : ');
+let sub1 = '';
+
+for (const i of subject) {
+  sub1 += i.concat('-');
+  // Console.log(i.concat('-'));
+}
+
+console.log(sub1);
