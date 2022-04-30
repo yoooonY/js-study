@@ -6,17 +6,17 @@ import { question } from "readline-sync";
 
 
 const num = new Array();
-// for (let i = 0; i === num.length; i++) {
 
-while (true) {
+while (num.length < 5) {
   const ques = question(`숫자를 입력하세요..`);
-  console.log(num.length);
   if (ques >= 10 && ques <= 20) {
     num.push(ques);
-    console.log(`저장됨 ${num.length}`);
-  } else if (num.length <= 5) {
-    break;
   } else {
     console.log('Outside the range');
   }
+}
+
+console.log(`Thank you`);
+for (const element of num) {
+  console.log(element);
 }
