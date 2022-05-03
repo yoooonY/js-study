@@ -13,5 +13,5 @@ for (let i = 1; i < 5; i++) {
 }
 
 for (const key of Object.keys(array)) {
-  console.log(`이름 : ${key}, 나이 : ${array[key].Age}`);
+  console.log(`이름: ${key}, 나이: ${array[key].Age}`);
 }

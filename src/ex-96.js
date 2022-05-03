@@ -8,4 +8,3 @@ const array = [
 ];
 
 console.log(array);
-console.log(array[([0], [3])]);

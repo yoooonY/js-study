@@ -1,7 +1,9 @@
 {
   "dependencies": {
+    "csv-parse": "5.0.4",
     "readline-sync": "1.4.10",
     "real-turtle": "1.0.21",
+    "require": "2.4.20",
     "xo": "0.47.0"
   },
   "xo": {
