@@ -4,18 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>TODOLIST</title>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
   </head>
+
   <body>
     <div id="myDIV" class="header">
       <form class="toDoForm">
-        <h2 style="margin:5px">My To Do List</h2>
+        <h1>TODOLIST</h1>
         <input type="text" placeholder="what are you going to do today?" />
         <span class="addBtn">Add</span>
       </form>
+      <div class="js-clock">
+        <h3>0000/00/00 00:00:00</h3>
+      </div>
     </div>
     <ul class="toDos"></ul>
-  <script src="todo.js"></script>
+
+    <footer class="js-weather"></footer>
 </body>
+
+<script src="clock.js"></script>
+<script src="todo.js"></script>
+<script src="weather.js"></script>
+
 </html>

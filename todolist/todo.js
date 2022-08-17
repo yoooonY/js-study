@@ -4,6 +4,7 @@
 const toDoForm = document.querySelector('.toDoForm');
 const toDoInput = toDoForm.querySelector('input');
 const toDos = document.querySelector('.toDos');
+const clock = document.querySelector('clock');
 const addTodoButton = document.querySelector('.addBtn');
 const todoItem = document.querySelector('.li');
 

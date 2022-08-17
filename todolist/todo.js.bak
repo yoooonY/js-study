@@ -1,19 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="myDIV" class="header">
+      <form class="toDoForm">
+        <h2 style="margin:5px">TODOLIST</h2>
+        <input type="text" placeholder="what are you going to do today?" />
+        <span class="addBtn">Add</span>
+      </form>
+      <div class="js-clock">
+        <h3>0000/00/00 00:00:00</h3>
+      </div>
+    </div>
+    <ul class="toDos"></ul>
+</body>
+<script src="clock.js"></script>
+<script src="todo.js"></script>
+</html>
+
+
+
+
+
+
 /* eslint-env browser */
 // https://gobae.tistory.com/18?category=942666
 // https://developer.mozilla.org/ko/docs/Web/API/Document/querySelector
 const toDoForm = document.querySelector('.toDoForm');
 const toDoInput = toDoForm.querySelector('input');
 const toDos = document.querySelector('.toDos');
-const addTodoButton = document.querySelector('.addBtn')
+const clock = document.querySelector('#clock');
+const addTodoButton = document.querySelector('.addBtn');
+const todoItem = document.querySelector('.li');
 
 const TODOLIST = 'toDoList'; // 추가
 let toDoList = []; // 추가
 
 function loadToDoList() {
   const loadedToDoList = localStorage.getItem(TODOLIST);
-  if (loadedToDoList !== null) {
-    const parsedToDoList = JSON.parse(loadedToDoList);
+  if (loadedToDoList !== null) { // 항상 실행됨
+    const parsedToDoList = JSON.parse(loadedToDoList); // string으로 저장되어있는 value를 다시 object로 형 변환
     for (const toDo of parsedToDoList) {
+      // parsedToDoList에 들어있는 데이터를 toDo에 넣어줌 (paintToDo(toDo.text);)
       const { text } = toDo; // Const text = toDo;
       paintToDo(text);
       saveToDo(text);
@@ -27,12 +61,28 @@ function init() {
   // https://developer.mozilla.org/ko/docs/Web/Events
   toDoForm.addEventListener('submit', createToDo);
   addTodoButton.addEventListener('click', createToDo);
+  toDos.addEventListener('click', completeTodo);
+}
+
+
+function getClock() {
+  const now = new Date();	// 현재 날짜 및 시간
+  const year = now.getFullYear();
+  const month = now.getMonth();
+  const date = now.getDate();
+  const hour = String(now.getHours()).padStart(2,"0"); // padStart() : 문자!!열의 시작을 다른 문자열로 채워줌 (number 안됨)
+  const minutes = String(now.getMinutes()).padStart(2,"0");
+  const seconds = String(now.getSeconds()).padStart(2,"0");
+  clock.innerText = `${hour}:${minutes}:${seconds}`;
 }
 
 init();
+getClock();
+setInterval(getClock, 1000); // 1초마다 실행
 
 function saveToDo(toDo) {
   const toDoObject = {
+    // toDoList 안에 넣을 정보 (튜플 형태로 저장)
     text: toDo,
     id: toDoList.length + 1,
   };
@@ -41,24 +91,30 @@ function saveToDo(toDo) {
 }
 
 function createToDo(event) {
-  event.preventDefault(); // https://developer.mozilla.org/ko/docs/Web/API/Event/preventDefault
-  const toDo = toDoInput.value;
-  paintToDo(toDo);
-  saveToDo(toDo);
-  toDoInput.value = '';
+  event.preventDefault(); // submit 해도 창이 새로고침되지 않도록
+  const toDo = toDoInput.value; // input에 입력된 값을 toDo로 선언
+  if (toDoInput.value.length === 0) {
+    // 입력값이 없으면 저장하지 않음
+    toDoInput.focus();
+  } else {
+    paintToDo(toDo);
+    saveToDo(toDo);
+    toDoInput.value = '';
+  }
 }
 
-function paintToDo(toDo) {
+function paintToDo(toDo) { // 화면에 toDo를 보여주기 위함
   const li = document.createElement('li');
   const span = document.createElement('span');
   const delButton = document.createElement('span');
   delButton.textContent = 'X';
-  delButton.classList.add('close')
+  delButton.classList.add('close');
   delButton.addEventListener('click', delToDo);
-  span.innerHTML = toDo;
-  li.append(span);
-  li.append(delButton);
-  li.id = toDoList.length + 1;
+  span.innerHTML = toDo; // input으로 받은 값을 span 태그에 넣어줌
+  li.append(span); // span을 li에 추가
+  li.append(delButton); // delbutton을 li에 추가
+  li.id = toDoList.length + 1; // li 태그 삭제할 때, 구분하기 위해 id 부여
+  // li.addEventListener('click', function() {completeTodo(li.id)})
   toDos.append(li);
 }
 
@@ -69,3 +125,22 @@ function delToDo(event) {
   toDoList = toDoList.filter((toDo) => toDo.id !== Number(li.id)); // Function (toDo) { return toDo.id !== li.id;}
   localStorage.setItem(TODOLIST, JSON.stringify(toDoList));
 }
+
+function completeTodo(event) {
+  const target = (event.target.nodeName == "LI") ? event.target : event.target.parentNode;
+  if (target.classList.contains('checked')) {
+    target.classList.remove('checked');
+  } else {
+    target.classList.add('checked');
+  }
+}
+
+// 아래는 항목 지울 때 에러 발생
+// function completeTodo(id) {
+//   const item = document.getElementById(id);
+//   if (item.classList.contains('checked')) {
+//     item.classList.remove('checked');
+//   } else {
+//     item.classList.add('checked');
+//   }
+// }
